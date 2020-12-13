@@ -1,0 +1,8 @@
+{
+	"isSecure": false,
+	"keyFile": "leaderboard.key",
+	"certFile": "leaderboard.cert",
+	"port": 3000,
+	"apiKey": "APIKEY",
+	"allowedOrigins": "*"
+}
