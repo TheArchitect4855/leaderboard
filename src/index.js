@@ -6,7 +6,7 @@ const http = require("http");
 const config = loadConfig();
 const rest = new Rest(config.apiKey, config.allowedOrigins);
 
-if(config.isSecure) {
+if (config.isSecure) {
 	createSecure();
 } else {
 	createInsecure();
@@ -22,7 +22,7 @@ function createSecure() {
 		}).listen(config.port);
 
 		console.log(`Created HTTPS server at https://localhost:${config.port}`);
-	} catch(e) {
+	} catch (e) {
 		console.error(`Error creating secure server: ${e}`);
 		process.exit(1);
 	}
@@ -47,7 +47,7 @@ function loadConfig() {
 		allowedOrigins: "*"
 	};
 
-	if(!fs.existsSync(configFile)) {
+	if (!fs.existsSync(configFile)) {
 		fs.writeFileSync(configFile, JSON.stringify(defaultConfig, null, "\t"));
 		console.log("A config file was not found and one was created.");
 	}
@@ -56,7 +56,7 @@ function loadConfig() {
 
 	try {
 		cfg = JSON.parse(cfg);
-	} catch(e) {
+	} catch (e) {
 		console.error(`Error parsing config: ${e}`);
 		cfg = defaultConfig;
 	}
